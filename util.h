@@ -20,7 +20,8 @@ struct timer {
 };
 
 
-ostream& operator << (ostream& str, const vector<int>& v) {
+template<typename T>
+ostream& operator << (ostream& str, const vector<T>& v) {
     str << "{";
     if (v.size() > 0) {
         size_t n = (v.size() <= 52)? v.size() : 50;
@@ -29,7 +30,7 @@ ostream& operator << (ostream& str, const vector<int>& v) {
         }
 
         if (n < v.size()) {
-            cout << "..., ";
+            str << "..., ";
         }
 
         str << v.back();
